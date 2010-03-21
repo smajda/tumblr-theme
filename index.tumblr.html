@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+Theme: Jon Smajda's Tumblr Theme
+Author: Jon Smajda
+-->
+<html lang="en">
+<head>
+  <!-- DEFAULT COLORS -->
+  <meta name="font:Body" content="Georgia, serif"/>
+  <meta name="font:Headers" content="'Helvetica Neue', Helvetica, sans-serif"/>
+  <meta name="font:Mono" content="'Menlo', 'Monaco', 'Consolas', monospace"/>
+  <meta name="color:Body" content="#ccc"/>
+  <meta name="color:BodyBorder" content="#bbb"/>
+  <meta name="color:ContentBackground" content="#fff"/>
+  <meta name="color:Footer" content="#eee"/>
+  <meta name="color:Text" content="#444"/>
+  <meta name="color:HeaderText" content="#666"/>
+  <meta name="color:Link" content="#666"/>
+  <meta name="color:ColorLink" content="#660000"/>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+  <link rel="icon" href="{Favicon}"/>
+
+  <!-- iPhone -->
+  <meta name="viewport" content="width=590"/>
+  <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+
+  <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+
+  <style type="text/css">
+    /* Blueprint's reset.css */
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+    article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;}
+    body {line-height:1.5;}
+    table {border-collapse:separate;border-spacing:0;}
+    caption, th, td {text-align:left;font-weight:normal;}
+    table, td, th {vertical-align:middle;}
+    blockquote:before, blockquote:after, q:before, q:after {content:"";}
+    blockquote, q {quotes:"" "";}
+    a img {border:none;}
+
+    /* Structure */
+    * {margin: 0;}
+    html, body {height: 100%;}
+    body { background-color: {color:Body}; color: {color:Text}; font-family: {font:Body};}
+
+    .wrapper { clear: both; min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -5em;}
+    .footer, .push { clear: both; height: 5em; }
+    .wrapper, .footer, .push { background-color: {color:ContentBackground}; width: 530px; padding: 0 90px; }
+    .wrapper, .footer { border-left: solid 3px {color:BodyBorder}; border-right: solid 3px {color:BodyBorder};}
+    .footer, .push { margin: 0 auto; }
+    .push {padding: 0 !important;}
+
+    /* The usual stuff */
+    h1, h2, h3, h4, h5 { 
+      color: {color:HeaderText}; 
+      font-family: {font:Headers}; 
+      font-weight: bold;
+      padding-top: 0;
+    }
+    h1 {font-size: 2.5em; text-align: center; padding-top: 1.3em;}
+    h2 {font-size: 1.4em; padding-top: 0;}
+    h3,h4,h5 {font-weight: normal; padding-top: 0.6em;}
+    h3 {font-size: 1.2em;}
+    h4 {font-size: 1.0em;}
+    h5 {font-size: 0.9em;}
+
+    p { padding: 0.4em 0 0.6em 0;}
+    p + p {padding-top: 0.6em;}
+    em {font-style: italic; }
+    pre, code {font-family: {font:Mono}; font-size: 0.9em; text-shadow: none;}
+    pre {margin: 0.3em 1em;}
+    blockquote {color: #666; margin: 0.5em 2em; border-left: solid 2px #ddd; padding-left: 1em;}
+    ol, ul {padding: 0 0 0.3em 1.6em;}
+    li {padding: 0.1em 0;}
+
+    /* links */
+    a {color: {color:Link}; text-decoration: none;}
+    a:hover {color: #222; background-color: #dedede;}
+    h1 a, h2 a {color: {color:ColorLink};}
+    p a, div.source a {color: {color:ColorLink}; text-decoration: none; border-bottom: 1px dotted #bbb;}
+    p a:hover {background-color: {color:colorLink}; color: #fff;}
+    p img {display: block; float: none; margin: 1.3em auto !important;}
+
+    /* divs and stuff */
+    div#top-links {text-align: center; color: #888; font-style: italic; padding-bottom: 1.3em;}
+
+    div.title-meta {font-size: 0.9em; color: #888; padding-top:0.9em;}
+    div.title-meta a {color: #888;}
+    div.title-meta a:hover {color: #666;}
+
+    div#prev-next { text-align: center; margin-bottom: 2em; }
+    div#prev-next a#prev { margin-right: 2em;}
+    div#prev-next a#next { margin-left: 2em;}
+
+    /* Post content */
+    div.post {margin-bottom: 2em; border-top: solid 1px #eee; padding-top: 0.6em;}
+    div.post h2 {color: #999;}
+
+    div.photo, div.video {padding-top: 0.4em;}
+
+    div.link h2:before {content: '\2192\ '}
+    div.link h2 {font-size: 1.1em; font-family: {font:Body}; font-weight: normal; padding: 0 0 0.2em 0.1em;}
+
+    div.quote {overflow:hidden;}
+    div.words {color: #666; margin-bottom: 0.5em;}
+    div.source {margin-left: 2em; margin-bottom: 1em;}
+
+    div.conversation ul {padding-left: 0; list-style-type: none; margin-top: 0.3em;}
+    div.conversation ul li span.line {}
+    div.conversation ul li span.person { font-weight: bold;}
+
+    div#searchresults {text-align: center;}
+    .query {font-weight: bold;}
+
+    /* Footer */
+    .footer {background-color: {color:Footer};}
+    .footer div {width: 245px; float: left; padding-top: 1em;}
+    .footer #search {padding-left: 10px;}
+    .footer #search input {float: right;}
+    .footer #search input[type="submit"] {margin-top: 3px;}
+    .footer #license {padding-right: 10px; text-align: right;}
+    .footer #license p {font-size: 0.7em; padding: 0 1em 0 0;}
+  </style>
+
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE9.js"></script><![endif]-->
+
+</head>
+<body>
+  <div class="wrapper">
+    <h1><a href="/">{Title}</a></h1>
+    <div id="top-links">
+      <a href="/about">About</a> | 
+      <a href="/archive">Archive</a> | 
+      <a href="/rss">RSS</a>
+    </div>
+
+  <div id="posts">
+
+  {block:SearchPage}
+  <div id="searchresults">
+    <p>Your search for <span class="query">{SearchQuery}</span> returned {SearchResultCount} result(s).</p>
+  </div>
+  {/block:SearchPage}
+
+  {block:Posts}
+  <div class="post">
+
+    {block:Text}
+    <div class="regular">
+      {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+      {Body}
+    </div>
+    {/block:Text}
+
+    {block:Link}
+    <div class="link">
+      <h2><a href="{URL} {Target}">{Name}</a></h2>
+      {block:Description}{Description}{/block:Description}
+    </div>
+    {/block:Link}
+
+    {block:Quote}
+    <div class="quote">
+      <div class="words">{Quote}</div>
+      {block:Source}<div class="source">&mdash; {Source}</div>{/block:Source}
+    </div>
+    {/block:Quote}
+
+    {block:Chat}
+    <div class="conversation">
+      {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+      <ul>
+        {block:Lines}
+        <li>
+        {block:Label}<span class="person">{Label}</span>{/block:Label}
+        <span class="line">{Line}</span></li>
+        {/block:Lines}
+      </ul>
+    </div>
+    {/block:Chat}
+
+    {block:Photo}
+    <div class="photo">
+      {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+      {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+    </div>
+    {/block:Photo}
+
+    {block:Video}
+    <div class="video">
+      {Video-500}
+      {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+    </div>
+    {/block:Video}
+
+    {block:Audio}
+    <div class="audio">
+      {AudioPlayerGrey}
+      {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+    </div>
+    {/block:Audio}
+
+    {block:Date}
+    <div class="title-meta">&mdash; <a href="{Permalink}">{Month} {DayOfMonth}, {Year} at {12Hour}:{Minutes}{AmPm}</a></div>
+    {/block:Date}
+
+    <br clear="all"/>
+  </div><!-- #post -->
+  {/block:Posts}
+  </div> <!-- #posts -->
+
+  {block:Pagination}
+  <div id="prev-next">
+    {block:NextPage}<a href="{NextPage}" id="prev" rel="next">&#8592; Older Posts</a>{/block:NextPage}
+    Page {CurrentPage} of {TotalPages}
+    {block:PreviousPage}<a href="{PreviousPage}" id="next">Newer Posts &#8594;</a>{/block:PreviousPage}
+  </div>
+  {/block:Pagination}
+
+
+    <div class="push"></div>
+  </div>
+
+  <div class="footer">
+    <div id="license">
+      <p>All original content is licensed under the <a href="#">Creative Commons Attribution 3.0 U.S. License</a>.</p>
+    </div>
+
+  <div id="search">
+    <form action="/search" method="get">
+      <input type="text" name="q" value="{SearchQuery}"/><br />
+      <input type="submit" value="Search"/>
+    </form>
+  </div>
+  </div>
+
+  <!-- analytics? -->
+</body>
+</html>
