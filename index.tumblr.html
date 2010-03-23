@@ -228,6 +228,15 @@ and reused  scraps of it here.
   </div>
   {/block:Pagination}
 
+  {block:PermalinkPagination}
+  <div id="prev-next">
+    {block:PreviousPost}<a href="{PreviousPost}" id="next">&#8592; Older Post</a>{/block:PreviousPost} 
+    &nbsp;
+    {block:NextPost}<a href="{NextPost}" id="prev" rel="next">Newer Post &#8594;</a>{/block:NextPost}
+  </div>
+  {/block:PermalinkPagination}
+
+
 
     <div class="push"></div>
   </div>
